@@ -1,5 +1,7 @@
 package com.hodnex.testphotoplan.ui
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.hodnex.testphotoplan.R

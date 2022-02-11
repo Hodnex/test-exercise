@@ -6,6 +6,7 @@ import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.hodnex.testphotoplan.R
@@ -54,7 +55,7 @@ class LocationFragment : Fragment(R.layout.fragment_location), ImageAdapter.OnIt
                 layoutManager = GridLayoutManager(requireContext(), 3)
             }
             buttonDeleteImage.setOnClickListener {
-                buttonDeleteImage.visibility = View.INVISIBLE
+                oflDeleteButton.visibility = View.INVISIBLE
                 imageAdapter.deletable = false
                 viewModel.delete()
                 imageAdapter.notifyDataSetChanged()
@@ -67,9 +68,14 @@ class LocationFragment : Fragment(R.layout.fragment_location), ImageAdapter.OnIt
     }
 
     override fun onItemLongClick() {
-        binding.buttonDeleteImage.visibility = View.VISIBLE
+        binding.oflDeleteButton.visibility = View.VISIBLE
         imageAdapter.deletable = true
         imageAdapter.notifyDataSetChanged()
+    }
+
+    override fun onItemClick(uri: String) {
+        val action = LocationFragmentDirections.actionLocationFragmentToFullScreenImageFragment(uri)
+        findNavController().navigate(action)
     }
 
     override fun onSelectItemClick(image: Image, isSelected: Boolean) {

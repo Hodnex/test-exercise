@@ -9,5 +9,17 @@
         android:id="@+id/locationFragment"
         android:name="com.hodnex.testphotoplan.ui.LocationFragment"
         android:label="fragment_location"
-        tools:layout="@layout/fragment_location" />
+        tools:layout="@layout/fragment_location" >
+        <action
+            android:id="@+id/action_locationFragment_to_fullScreenImageFragment"
+            app:destination="@id/fullScreenImageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fullScreenImageFragment"
+        android:name="com.hodnex.testphotoplan.ui.FullScreenImageFragment"
+        android:label="fragment_full_screen_image"
+        tools:layout="@layout/fragment_full_screen_image" >
+        <argument android:name="image_uri"
+            app:argType="string" />
+    </fragment>
 </navigation>

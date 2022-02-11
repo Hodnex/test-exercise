@@ -8,17 +8,16 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="40dp">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraint_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true">
-
 
             <ImageView
                 android:id="@+id/image_view"
@@ -45,21 +44,27 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/image_view" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_view_section"
+            <com.hodnex.testphotoplan.widgets.OutlinedFrameLayout
+                android:id="@+id/ofl_location_name"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                app:cardCornerRadius="23dp"
-                app:cardElevation="30dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rect_23dp"
+                android:backgroundTint="@color/white"
+                android:elevation="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image_view">
+                app:layout_constraintTop_toBottomOf="@+id/image_view"
+                app:ofl_cornerRadius="23dp"
+                app:ofl_outlineBottom="-5dp"
+                app:ofl_outlineLeft="-5dp"
+                app:ofl_outlineRight="5dp"
+                app:ofl_outlineTop="5dp">
 
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="50dp"
                     android:layout_margin="15dp"
-                    android:background="@drawable/rounded_text_section"
+                    android:background="@drawable/bg_rect_14dp"
                     android:fontFamily="@font/ubuntu"
                     android:hint="Улицы"
                     android:inputType="textImeMultiLine"
@@ -68,26 +73,32 @@
                     android:textColor="@color/black"
                     android:textSize="25sp"
                     tools:ignore="TouchTargetSizeCheck" />
-            </androidx.cardview.widget.CardView>
+            </com.hodnex.testphotoplan.widgets.OutlinedFrameLayout>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
+            <com.hodnex.testphotoplan.widgets.OutlinedFrameLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                app:cardCornerRadius="23dp"
-                app:cardElevation="30dp"
+                android:background="@drawable/bg_rect_23dp"
+                android:backgroundTint="@color/white"
+                android:elevation="2dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card_view_section">
+                app:layout_constraintTop_toBottomOf="@+id/ofl_location_name"
+                app:ofl_cornerRadius="23dp"
+                app:ofl_outlineBottom="-5dp"
+                app:ofl_outlineLeft="-5dp"
+                app:ofl_outlineRight="5dp"
+                app:ofl_outlineTop="5dp">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
                     app:cardBackgroundColor="#EDF3F4"
-                    app:cardCornerRadius="23dp">
+                    app:cardCornerRadius="14dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -98,7 +109,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="8dp"
-                            android:background="@drawable/rounded_text_section"
+                            android:background="@drawable/bg_rect_14dp"
                             android:fontFamily="@font/ubuntu"
                             android:hint="Название локации"
                             android:inputType="textImeMultiLine"
@@ -123,6 +134,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="4dp"
+                            android:nestedScrollingEnabled="false"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -130,26 +142,41 @@
                             tools:listitem="@layout/grid_item_image" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
-            </androidx.cardview.widget.CardView>
+            </com.hodnex.testphotoplan.widgets.OutlinedFrameLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_marginBottom="-20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_alignBottom="@+id/constraint_layout">
 
-            <Button
-                android:id="@+id/button_delete_image"
-                android:layout_width="190dp"
-                android:layout_height="50dp"
-                android:background="@drawable/rounded_button_delete"
-                android:text="Удалить"
-                android:textColor="@color/white"
+            <com.hodnex.testphotoplan.widgets.OutlinedFrameLayout
+                android:id="@+id/ofl_delete_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rect_83dp"
+                android:backgroundTint="@color/white"
+                android:elevation="2dp"
                 android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:ofl_cornerRadius="83dp"
+                app:ofl_outlineBottom="-5dp"
+                app:ofl_outlineLeft="-5dp"
+                app:ofl_outlineRight="5dp"
+                app:ofl_outlineTop="5dp">
+
+                <Button
+                    android:id="@+id/button_delete_image"
+                    android:layout_width="190dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_borders_rect_83dp"
+                    android:elevation="30dp"
+                    android:text="Удалить"
+                    android:textColor="@color/white" />
+            </com.hodnex.testphotoplan.widgets.OutlinedFrameLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </RelativeLayout>
 </ScrollView>

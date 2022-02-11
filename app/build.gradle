@@ -75,6 +75,11 @@ dependencies {
 
     // Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //Loupe
+    implementation 'io.github.igreenwood.loupe:loupe:1.2.2'
+    // optional
+    implementation 'io.github.igreenwood.loupe:extensions:1.0.1'
 }
 
 // Allow references to generated code

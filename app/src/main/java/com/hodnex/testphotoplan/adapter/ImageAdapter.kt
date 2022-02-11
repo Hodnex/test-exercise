@@ -35,6 +35,10 @@ class ImageAdapter(private val listener: OnItemClickListener) :
                     listener.onItemLongClick()
                     true
                 }
+                root.setOnClickListener {
+                    val position = adapterPosition
+                    listener.onItemClick(getItem(position).imageUri)
+                }
                 imageUnselected.setOnClickListener {
                     val position = adapterPosition
                     if (position != RecyclerView.NO_POSITION) {
@@ -48,7 +52,7 @@ class ImageAdapter(private val listener: OnItemClickListener) :
         fun bind(image: Image) {
 
             binding.apply {
-                Picasso.get().load(image.imageUri).into(locationImage)
+                Picasso.get().load(image.imageUri).into(imageLocation)
                 if(deletable){
                     if (image.isSelected) {
                         imageSelected.visibility = View.VISIBLE
@@ -67,6 +71,7 @@ class ImageAdapter(private val listener: OnItemClickListener) :
 
     interface OnItemClickListener {
         fun onItemLongClick()
+        fun onItemClick(uri: String)
         fun onSelectItemClick(image: Image, isSelected: Boolean)
     }
 
