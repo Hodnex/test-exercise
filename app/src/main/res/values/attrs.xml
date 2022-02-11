@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="OutlinedFrameLayout">
+        <attr name="ofl_outlineLeft" format="dimension" />
+        <attr name="ofl_outlineTop" format="dimension" />
+        <attr name="ofl_outlineRight" format="dimension" />
+        <attr name="ofl_outlineBottom" format="dimension" />
+        <attr name="ofl_outlineVertical" format="dimension" />
+        <attr name="ofl_outlineHorizontal" format="dimension" />
+        <attr name="ofl_cornerRadius" format="dimension" />
+    </declare-styleable>
+</resources>
