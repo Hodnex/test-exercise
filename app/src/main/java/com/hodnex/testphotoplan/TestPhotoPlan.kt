@@ -1,9 +1,7 @@
-package com.hodnex.testphotoplan;
+package com.hodnex.testphotoplan
 
-import android.app.Application;
-
-import dagger.hilt.android.HiltAndroidApp;
+import dagger.hilt.android.HiltAndroidApp
+import android.app.Application
 
 @HiltAndroidApp
-public class TestPhotoPlan extends Application {
-}
+class TestPhotoPlan : Application()
